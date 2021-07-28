@@ -2,7 +2,15 @@
   <br/>
   <h2>Log in</h2>
 
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <%= nested_form_for([resource_name, resource.with_school], url: session_path(resource_name)) do |f| %>
+   
+    <%= f.fields_for :school do |school_form| %>
+      <div class="field" data-schools="<%= @schools.to_json %>">
+        <%= school_form.label :school_name %><br />
+        <%= school_form.text_field :name, as: :search, data: {autocomplete_source: user_session_path} %>
+      </div>
+    <% end %>
+
     <div class="field">
       <%= f.label :email %><br />
       <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -12,6 +20,8 @@
       <%= f.label :password %><br />
       <%= f.password_field :password, autocomplete: "current-password" %>
     </div>
+
+    
 
     <% if devise_mapping.rememberable? %>
       <div class="field">

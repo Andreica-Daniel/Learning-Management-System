@@ -8,7 +8,7 @@
     <%= f.fields_for :school do |school_form| %>
       <div class="field">
         <%= school_form.label :school_name%><br />
-        <%= school_form.text_field :name %>
+        <%= school_form.text_field :name, autocomplete: "name" %>
       </div>
 
       <div class="field">
