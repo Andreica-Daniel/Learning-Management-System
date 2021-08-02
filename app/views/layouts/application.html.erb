@@ -18,6 +18,9 @@
   </head>
   <body>
     <%= render 'home/header' %>
+    <% if user_signed_in? %>
+      <%= render 'home/sidebar' %>
+    <% end %>
     <div class="container-fluid">
       <% if notice %>
         <br/>
