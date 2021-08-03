@@ -1,0 +1,42 @@
+<div class="content-container">
+    <div class="container-fluid">
+
+    <h1>Add New User</h1>
+
+    <%= form_with(url: users_adding_save_users_path(), method: :get, local: true ) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+      
+        <div class="field">
+          <%= f.label :first_name %><br/>
+          <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :last_name %><br/>
+          <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :email %><br/>
+          <%= f.text_field :email, autofocus: true, autocomplete: "email" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :password %><br />
+          <%= f.password_field :password, autocomplete: "password" %>
+        </div><br/>
+
+        <%= f.label "Select role for user: " %><br/>
+        <%= f.label :Admin %> 
+        <%= f.check_box :admin %> <br/> 
+        <%= f.label :Teacher %> 
+        <%= f.check_box :teacher %> <br/> 
+        <%= f.label :Student %> 
+        <%= f.check_box :student %> <br/> <br/>
+
+        <%= submit_tag "Save", class: "btn btn-primary" %>
+        <%= link_to 'Cancel', root_path, class:"btn btn-primary" %>
+      <% end %>
+
+    </div>
+</div>
