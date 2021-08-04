@@ -1,9 +1,13 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+body {
+  margin-top: 55px;
+}
+
 .sidebar-container {
     position: fixed;
-    width: 220px;
+    width: 240px;
     height: 100%;
     left: 0;
     overflow-x: hidden;

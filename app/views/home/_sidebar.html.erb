@@ -1,53 +1,24 @@
 <div class="sidebar-container">
-  
+  <div class="footer-copyright text-center py-3">Logged in as: <br/> <%= current_user.email %></div>
   <ul class="sidebar-navigation">
     <li class="header">Navigation</li>
     <li>
-      <a href="#">
-        <i class="fa fa-home" aria-hidden="true"></i> Homepage
-      </a>
+      <%= link_to ' Homepage', root_path, class:"fa fa-home" %>
     </li>
     <li>
-      <a href="#">
-        <i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard
-      </a>
+      <%= link_to ' Dashboard', home_about_path, class:"fa fa-tachometer" %>
     </li>
-    <li class="header">Another Menu</li>
-    <li>
-      <a href="#">
-        <i class="fa fa-users" aria-hidden="true"></i> Friends
-      </a>
-    </li>
-    <li>
-      <a href="#">
-        <i class="fa fa-cog" aria-hidden="true"></i> Settings
-      </a>
-    </li>
-    <li>
-      <a href="#">
-        <i class="fa fa-info-circle" aria-hidden="true"></i> Information
-      </a>
-    </li>
+    <% if current_user.admin != true%> <!--be careful here!!!!!!!!!!!!!!!!-->
+      <li class="header">Admin Panel</li>
+      <li>
+        <%= link_to ' Add User Manually', users_adding_adding_manually_path, class:"fa fa-user-plus" %>
+      </li>
+      <li>
+        <%= link_to ' Add User From File', users_adding_adding_csv_path, class:"fa fa-user-plus" %> 
+      </li>
+      <li>
+        <%= link_to ' Show Users', home_show_users_path, class:"fa fa-bars" %> 
+      </li>
+    <% end %>
   </ul>
-  <footer> 
-    <div class="footer-copyright text-center py-3">Logged in as: <%= current_user.email %></div>
-  </footer>
-</div>
-
-
-<div class="content-container">
-
-  <div class="container-fluid">
-
-    <!-- Main component for a primary marketing message or call to action -->
-    <!--<div class="jumbotron">
-      <h1>Navbar example</h1>
-      <p>This example is a quick exercise to illustrate how the default, static and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
-      <p>To see the difference between static and fixed top navbars, just scroll.</p>
-      <p>
-        <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs &raquo;</a>
-      </p>
-    </div>
-    -->
-  </div>
 </div>
