@@ -19,6 +19,12 @@
           <li class="nav-item">
               <%= link_to 'Add New User', users_adding_adding_manually_path, class:"nav-link" %>
           </li>
+          <li class="nav-item">
+              <%= link_to 'Add New Users from CSV', users_adding_adding_csv_path, class:"nav-link" %>
+          </li>
+          <li class="nav-item">
+              <%= link_to 'Show Users', home_show_users_path, class:"nav-link" %>
+          </li>
         <% else %>
           <li class="nav-item">
               <%= link_to 'Sign Up', new_user_registration_path, class:"nav-link" %>
