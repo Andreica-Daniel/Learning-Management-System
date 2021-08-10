@@ -1,0 +1,36 @@
+<div class="content-container">
+  <div class="container-fluid"> 
+
+    <h1>Users Courses</h1>
+
+    <div class="table-responsive">
+      <table class="table table-striped table-bordered table-hover">
+        <thead class="table-dark">
+          <tr>
+          <th>User Id</th>
+          <th>Course Id</th>
+          <th colspan="3"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+        <% @users_courses.each do |users_course| %>
+          <tr>
+            <td><%= users_course.user_id %></td>
+            <td><%= users_course.course_id %></td>
+            <td><%= link_to 'Show', users_course %></td>
+            <td><%= link_to 'Edit', edit_users_course_path(users_course) %></td>
+            <td><%= link_to 'Destroy', users_course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+
+      <%= link_to 'New User to Course', new_users_course_path, class:"btn btn-primary" %>
+      <%= link_to 'Back', courses_path, class:"btn btn-primary" %>
+
+    </div>
+  </div>
+</div>
+
+
