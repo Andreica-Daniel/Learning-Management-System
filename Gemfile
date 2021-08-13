@@ -30,6 +30,9 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'devise', '~> 4.8'
 gem 'nested_form', '~> 0.3.2'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.7'
+gem 'filestack-rails', '~> 5.5', '>= 5.5.2'
+gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
+gem 'sassc-rails', '~> 2.1', '>= 2.1.2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

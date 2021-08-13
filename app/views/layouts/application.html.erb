@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,8 +14,13 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <%= filestack_js_include_tag %>
+    <%= filestack_js_init_tag %>
+
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <script type="text/javascript" src="//api.filestackapi.com/filestack.js"></script>
   </head>
   <body>
     <%= render 'home/header' %>

@@ -11,7 +11,55 @@
       <br/>
       <%= link_to 'Edit', edit_course_path(@course), class:"btn btn-primary" %> 
       <%= link_to 'Back', courses_path, class:"btn btn-primary" %>
+      <%= link_to 'Add Resources', new_resource_path, class:"btn btn-primary" %> 
+    </div>
+
+    <div class="card-body">
+      <p>
+        <strong>Description:</strong>
+        <%= @course.description %>
+      </p>
+
+      <p><strong>Resources:</strong>
+        <div class="tab">
+          <% @all_resources.each do |res| %>
+            <li>
+              <%= link_to '', :onclick => "get_metadata('#{res.url}')" do %>
+                <%= res.name %><br  />
+              <% end %>
+            </li>
+          <% end %>
+        </div>
+        <%= link_to 'Display resources', resources_path, class:"btn btn-primary" %>
+        </p>
     </div>
 
   </div>
 </div>
+
+
+<script type="text/javascript">
+  function get_metadata(url){
+    $.get( url + "/metadata", function( data ){
+      get_file(data.filename,data.mimetype,data.isWriteable,data.size,url);
+    });
+  }
+
+  function get_file(filename, mimetype, isWriteable, size, url){
+    filepicker.setKey("AEgoy56fEQziKJ8ajM2Luz");
+    var blob = {
+      url: url,
+      filename: filename,
+      mimetype: mimetype,
+      isWriteable: isWriteable,
+      size: size
+    };  
+
+    filepicker.exportFile(
+      blob,
+      function(Blob){
+        console.log(Blob.url);
+      }
+    );
+  }
+</script>
