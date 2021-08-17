@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :attachments
+  resources :essay_solutions
+  resources :essays
+  resources :lessons
   resources :resources
   resources :users_courses
   resources :courses

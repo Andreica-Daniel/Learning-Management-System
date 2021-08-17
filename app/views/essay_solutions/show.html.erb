@@ -1,0 +1,54 @@
+<div class="content-container">
+  <div class="container-fluid"> 
+
+    <p>
+      <strong>Essay:</strong>
+      <%= @essay_solution.essay_id %>
+    </p>
+
+    <p>
+      <strong>Student:</strong>
+      <%= @essay_solution.student_id %>
+    </p>
+
+    <p>
+      <strong>Solution:</strong>
+      <%= @essay_solution.solution %>
+    </p>
+
+    <p>
+      <strong>Attachment:</strong>
+      <%= @essay_solution.attachment %>
+    </p>
+
+    <%= link_to 'Edit', edit_essay_solution_path(@essay_solution) %> |
+    <%= link_to 'Back', essay_solutions_path %>
+
+  </div>
+</div>
+
+<script type="text/javascript">
+  function get_metadata(url){
+    $.get( url + "/metadata", function( data ){
+      get_file(data.filename,data.mimetype,data.isWriteable,data.size,url);
+    });
+  }
+
+  function get_file(filename, mimetype, isWriteable, size, url){
+    filepicker.setKey("AEgoy56fEQziKJ8ajM2Luz");
+    var blob = {
+      url: url,
+      filename: filename,
+      mimetype: mimetype,
+      isWriteable: isWriteable,
+      size: size
+    };  
+
+    filepicker.exportFile(
+      blob,
+      function(Blob){
+        console.log(Blob.url);
+      }
+    );
+  }
+</script>
