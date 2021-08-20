@@ -26,9 +26,9 @@
     <%= form.text_area :solution %>
   </div>
 
-  <div class="field">
-    <%= form.label :attachment %>
-    <%= form.text_area :attachment %>
+  <div>
+    <button class="btn btn-primary" type="button" onclick="files(event)">Upload Solution</button>
+    <%= form.hidden_field :attachment, id:"hidden_input_files" %>
   </div>
 
   <div class="actions">

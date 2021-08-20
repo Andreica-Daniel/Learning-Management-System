@@ -1,5 +1,6 @@
 class EssaySolutionsController < ApplicationController
   before_action :set_essay_solution, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
 
   # GET /essay_solutions or /essay_solutions.json
   def index

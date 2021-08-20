@@ -11,14 +11,14 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field" data-controller="select">
     <%= form.label :user_id %>
-    <%= form.number_field :user_id %>
+    <%= form.select :user_id, User.pluck(:id), { include_blank: false }, class: "form-input", data: { target: "select.input" } %>
   </div>
 
-  <div class="field">
+  <div class="field" data-controller="select">
     <%= form.label :course_id %>
-    <%= form.number_field :course_id %>
+    <%= form.select :course_id, Course.pluck(:id), { include_blank: false }, class: "form-input", data: { target: "select.input" } %>
   </div>
 
   <div class="actions">

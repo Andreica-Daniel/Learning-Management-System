@@ -1,5 +1,6 @@
 class UsersCoursesController < ApplicationController
   before_action :set_users_course, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
 
   # GET /users_courses or /users_courses.json
   def index
